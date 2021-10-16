@@ -1,6 +1,6 @@
 html {
-  background-color: black;
-  color: blanchedalmond;
+  background-color: #000000;
+  color: #ffebcd;
 }
 h1 {
   text-align: center;
@@ -8,32 +8,78 @@ h1 {
 }
 
 .container {
+  width: 40em;
+  height: 30em;
   margin: auto;
 }
 
 .slides-container {
   display: grid;
+  grid-template-rows: 1fr 3em;
+  grid-template-columns: 1fr repeat(4, 2em);
   grid-template-areas:
-    "slide slide"
-    "quotes bullets";
-  row-gap: 5%;
-  column-gap: 5%;
-  align-items: center;
-  justify-items: stretch;
+    "slide slide slide slide slide"
+    "quotes bullet1 bullet2 bullet3 bullet4 ";
   overflow: hidden;
-  width: 100%;
 }
+
+/* LABEL STYLING */
+label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  cursor: pointer;
+}
+
+label:nth-of-type(1) {
+  grid-area: bullet1;
+}
+
+label:nth-of-type(2) {
+  grid-area: bullet2;
+}
+
+label:nth-of-type(3) {
+  grid-area: bullet3;
+}
+
+label:nth-of-type(4) {
+  grid-area: bullet4;
+}
+
+label::after {
+  content: " ";
+  min-width: 0.5em;
+  min-height: 0.5em;
+  border-radius: 50%;
+  border: 0.2em solid #5555aa;
+  background-color: #5555aa;
+}
+
+label:hover::after {
+  border-color: #eeeeee;
+  background-color: #eeeeee;
+}
+
+input:checked + label::after {
+  border-color: #9999aa;
+  background-color: transparent;
+}
+
+input:checked + label:hover::after {
+  border-color: #eeeeee;
+}
+
+/* IMAGE STYLING */
 
 .slide-img {
   grid-area: slide;
-} 
-
-.bullets {
-  grid-area: bullets;
 }
+
+/* QUOTES STYLING */
 
 .quotes {
   grid-area: quotes;
-
 }
 
