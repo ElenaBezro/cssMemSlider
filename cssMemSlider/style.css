@@ -23,7 +23,7 @@ h1 {
   overflow: hidden;
 }
 
-/* LABEL STYLING */
+/* BULLETS STYLING */
 label {
   display: flex;
   justify-content: center;
@@ -75,6 +75,14 @@ input:checked + label:hover::after {
 
 .slide-img {
   grid-area: slide;
+  transform: translateX(100%);
+  transition: transform 200ms ease-in;
+  transition-delay: 200ms;
+}
+
+input:checked + label + .slide-img {
+  transform: translateX(0);
+  transition-delay: 0ms;
 }
 
 /* QUOTES STYLING */
@@ -82,4 +90,3 @@ input:checked + label:hover::after {
 .quotes {
   grid-area: quotes;
 }
-
