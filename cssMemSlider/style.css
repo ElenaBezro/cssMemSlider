@@ -8,9 +8,9 @@ h1 {
 }
 
 .container {
-  width: 40em;
-  height: 30em;
-  margin: auto;
+  max-width: 40em;
+  max-height: 30em;
+  margin: 0 auto;
   background-color: #2b2828;
 }
 
@@ -87,7 +87,7 @@ input:checked + label:hover::after {
   grid-area: slide;
   transform: translateX(100%);
   transition: transform 200ms ease-in;
-  transition-delay: 200ms;
+  transition-delay: 200ms;  
 }
 
 input:checked + label + .slide-img {
@@ -97,6 +97,8 @@ input:checked + label + .slide-img {
 
 img {
   border-radius: 0.5em;
+  width: 100%;
+  height: auto;
 }
 
 /* QUOTES STYLING */
@@ -115,4 +117,37 @@ input:checked + label + .slide-img + .quotes {
   opacity: 1;
   pointer-events: all;
   transform: translateX(0%);
+}
+
+@media (max-width: 380px) {
+  h1 {
+    font-size: 1.25em;
+  }
+
+  /* .container {
+    max-width: 16em;
+    max-height: 12em;
+  } */
+
+  .slides-container {
+    grid-template-rows: 1fr 3em 6fr;
+    grid-template-columns: 1fr 1.5em 1.5em 1fr;
+    grid-template-areas:
+      "slide slide slide slide"
+      "bullet1 bullet2 bullet3 bullet4"
+      "quotes quotes quotes quotes";
+  }
+
+  label:nth-of-type(1) {
+    justify-self: end;
+  }
+
+  label:nth-of-type(4) {
+    justify-self: start;
+  }
+
+  .quotes {
+    font-size: 0.9em;
+    align-self: flex-start;
+  }
 }
