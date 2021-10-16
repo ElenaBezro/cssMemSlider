@@ -1,0 +1,39 @@
+html {
+  background-color: black;
+  color: blanchedalmond;
+}
+h1 {
+  text-align: center;
+  align-items: center;
+}
+
+.container {
+  margin: auto;
+}
+
+.slides-container {
+  display: grid;
+  grid-template-areas:
+    "slide slide"
+    "quotes bullets";
+  row-gap: 5%;
+  column-gap: 5%;
+  align-items: center;
+  justify-items: stretch;
+  overflow: hidden;
+  width: 100%;
+}
+
+.slide-img {
+  grid-area: slide;
+} 
+
+.bullets {
+  grid-area: bullets;
+}
+
+.quotes {
+  grid-area: quotes;
+
+}
+
