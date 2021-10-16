@@ -1,6 +1,6 @@
 html {
-  background-color: #000000;
-  color: #ffebcd;
+  background-color: #2b2828;
+  color: #ece9e9;
 }
 h1 {
   text-align: center;
@@ -11,6 +11,11 @@ h1 {
   width: 40em;
   height: 30em;
   margin: auto;
+  background-color: #2b2828;
+}
+
+input {
+  display: none;
 }
 
 .slides-container {
@@ -28,7 +33,7 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1em;
+  padding: 0.5em;
   cursor: pointer;
 }
 
@@ -53,7 +58,7 @@ label::after {
   min-width: 0.5em;
   min-height: 0.5em;
   border-radius: 50%;
-  border: 0.2em solid #5555aa;
+  border: 0.1em solid #5555aa;
   background-color: #5555aa;
 }
 
@@ -62,8 +67,13 @@ label:hover::after {
   background-color: #eeeeee;
 }
 
+label:active:hover::after {
+  border-color: #999797;
+  background-color: #999797;
+}
+
 input:checked + label::after {
-  border-color: #9999aa;
+  border-color: #5555aa;
   background-color: transparent;
 }
 
@@ -85,11 +95,14 @@ input:checked + label + .slide-img {
   transition-delay: 0ms;
 }
 
+img {
+  border-radius: 0.5em;
+}
+
 /* QUOTES STYLING */
 
 .quotes {
   grid-area: quotes;
-  margin-left: 1em;
   opacity: 0;
   pointer-events: none;
   align-self: center;
