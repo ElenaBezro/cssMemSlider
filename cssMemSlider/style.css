@@ -1,0 +1,153 @@
+html {
+  background-color: #2b2828;
+  color: #ece9e9;
+}
+h1 {
+  text-align: center;
+  align-items: center;
+}
+
+.container {
+  max-width: 40em;
+  max-height: 30em;
+  margin: 0 auto;
+  background-color: #2b2828;
+}
+
+input {
+  display: none;
+}
+
+.slides-container {
+  display: grid;
+  grid-template-rows: 1fr 3em;
+  grid-template-columns: 1fr repeat(4, 2em);
+  grid-template-areas:
+    "slide slide slide slide slide"
+    "quotes bullet1 bullet2 bullet3 bullet4 ";
+  overflow: hidden;
+}
+
+/* BULLETS STYLING */
+label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5em;
+  cursor: pointer;
+}
+
+label:nth-of-type(1) {
+  grid-area: bullet1;
+}
+
+label:nth-of-type(2) {
+  grid-area: bullet2;
+}
+
+label:nth-of-type(3) {
+  grid-area: bullet3;
+}
+
+label:nth-of-type(4) {
+  grid-area: bullet4;
+}
+
+label::after {
+  content: " ";
+  min-width: 0.5em;
+  min-height: 0.5em;
+  border-radius: 50%;
+  border: 0.1em solid #5555aa;
+  background-color: #5555aa;
+}
+
+label:hover::after {
+  border-color: #eeeeee;
+  background-color: #eeeeee;
+}
+
+label:active:hover::after {
+  border-color: #999797;
+  background-color: #999797;
+}
+
+input:checked + label::after {
+  border-color: #5555aa;
+  background-color: transparent;
+}
+
+input:checked + label:hover::after {
+  border-color: #eeeeee;
+}
+
+/* IMAGE STYLING */
+
+.slide-img {
+  grid-area: slide;
+  transform: translateX(100%);
+  transition: transform 200ms ease-in;
+  transition-delay: 200ms;  
+}
+
+input:checked + label + .slide-img {
+  transform: translateX(0);
+  transition-delay: 0ms;
+}
+
+img {
+  border-radius: 0.5em;
+  width: 100%;
+  height: auto;
+}
+
+/* QUOTES STYLING */
+
+.quotes {
+  grid-area: quotes;
+  opacity: 0;
+  pointer-events: none;
+  align-self: center;
+  font-size: 1.25em;
+  transform: translateX(100%);
+  transition: transform 200ms ease-in;
+}
+
+input:checked + label + .slide-img + .quotes {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateX(0%);
+}
+
+@media (max-width: 380px) {
+  h1 {
+    font-size: 1.25em;
+  }
+
+  /* .container {
+    max-width: 16em;
+    max-height: 12em;
+  } */
+
+  .slides-container {
+    grid-template-rows: 1fr 3em 6fr;
+    grid-template-columns: 1fr 1.5em 1.5em 1fr;
+    grid-template-areas:
+      "slide slide slide slide"
+      "bullet1 bullet2 bullet3 bullet4"
+      "quotes quotes quotes quotes";
+  }
+
+  label:nth-of-type(1) {
+    justify-self: end;
+  }
+
+  label:nth-of-type(4) {
+    justify-self: start;
+  }
+
+  .quotes {
+    font-size: 0.9em;
+    align-self: flex-start;
+  }
+}
